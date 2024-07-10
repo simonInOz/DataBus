@@ -1,0 +1,78 @@
+CREATE OR ALTER PROC CorrectTotal2
+    @FI_ID varchar(10),
+    @ReportPeriod_ID varchar(30),
+    @TransactionType varchar(30),
+    @Forms varchar(60)
+AS
+BEGIN
+    SELECT
+        ed.ReportPeriod_ID,
+        [Label],
+        cd.DestLabel,
+        cd.DestType,
+        SUM(Number) Number_sum,
+        SUM(Value_in_Thousands) Value_in_Thousands_sum
+    INTO #myTemp
+    FROM [dbo].[extracted_data] ed, Uploads up, AggregatorCalc ac, CalcDetails cd
+    WHERE 
+        ed.ReportPeriod_ID = @ReportPeriod_ID AND
+        label = cd.SourceLabel AND [Type] = cd.sourceType AND
+        ac.Data_already_included_in_FI_ID = @FI_ID AND 
+        ac.Status = 'Active' AND ac.TransactionType = @TransactionType AND 
+        ac.FI_ID = ed.FI_ID AND ac.Forms = @Forms AND
+        up.id = ed.uploads_ID AND up.Form = ac.Forms AND
+        cd.SourceForm = ac.Forms AND cd.Status = 'Active'
+    GROUP BY ed.ReportPeriod_ID, cd.DestLabel, cd.DestType, Label
+    ORDER BY ed.ReportPeriod_ID, Label, cd.DestLabel, cd.DestType
+
+    SELECT
+        ROW_NUMBER() OVER(ORDER BY [Label] ASC) AS Row#, [Label], DestLabel, DestType, 
+        Number_sum,
+        Value_in_Thousands_sum
+    INTO #myTemp2
+    FROM #myTemp
+
+    SELECT * FROM #myTemp2
+
+    DECLARE @cnt int
+    DECLARE @rows_created int
+    DECLARE @Label varchar(100)
+    DECLARE @DestLabel varchar(100)
+    DECLARE @DestType varchar(100)
+    DECLARE @num MONEY
+    DECLARE @val DECIMAL(19,5)
+
+    SET @cnt = 1
+    SET @rows_created = 0
+    SET @Label = 'zzz'
+    WHILE @Label is not NULL
+    BEGIN
+        SET @Label = (SELECT [Label] FROM #myTemp2 WHERE Row# = @cnt)
+        SET @DestLabel = (SELECT [DestLabel] FROM #myTemp2 WHERE Row# = @cnt)
+        SET @DestType = (SELECT [DestType] FROM #myTemp2 WHERE Row# = @cnt)
+        SET @num = (SELECT [Number_sum] FROM #myTemp2 WHERE Row# = @cnt)
+        SET @val = (SELECT [Value_in_Thousands_sum] FROM #myTemp2 WHERE Row# = @cnt)
+
+        IF @Label IS NOT NULL
+        BEGIN
+            SET @rows_created = @rows_created +1
+            IF @cnt = 1
+                 SELECT ReportPeriod_ID, FI_ID, Type, Label, Number, Value_in_Thousands, (Number - @num) Number_corrected, (Value_in_Thousands-@val) Value_in_Thousands_corrected
+                    INTO #temp3
+                    from extracted_data
+                    WHERE ReportPeriod_ID = @ReportPeriod_ID AND
+                        label = @DestLabel AND FI_ID = @FI_ID AND [Type] = @DestType
+            ELSE
+                INSERT INTO #temp3
+                        SELECT ReportPeriod_ID, FI_ID, Type, Label, Number, Value_in_Thousands, (Number - @num) Number_corrected, (Value_in_Thousands-@val) Value_in_Thousands_corrected
+                        from extracted_data
+                        WHERE ReportPeriod_ID = @ReportPeriod_ID AND
+                            label = @DestLabel AND FI_ID = @FI_ID AND [Type] = @DestType
+                        SET @cnt = @cnt + 1
+        END
+    END
+    IF @rows_created >0
+        SELECT * FROM #temp3 ORDER BY Label, Type
+    ELSE
+        SELECT 'No Results', @FI_ID, @ReportPeriod_ID, @TransactionType, @Forms
+END

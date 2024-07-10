@@ -1,0 +1,364 @@
+{
+    "trueDev": {
+        "dbserver": "psmsdevdbserver.database.windows.net",
+        "dbuser": "PSMS_DEV_user",
+        "dbpassword": "AusPayNet2021!",
+        "dbdatabase": "dbudb_dev"
+    },
+    "fakeDevProd": {
+        "dbserver": "psmsproddbserver.database.windows.net",
+        "dbuser": "user_prod",
+        "dbpassword": "oRY9ZbDjnpntJ!jhRYHPYH!!Ev*u7#6*9ySaMyQQqW3KRmF@3r",
+        "dbdatabase": "psmsproddb"
+    },
+    "dev": {        
+        "dbserver": "psmsdevdbserver.database.windows.net",
+        "dbuser": "PSMS_DEV_user",
+        "dbpassword": "AusPayNet2021!",
+        "dbdatabase": "dbudb_dev"
+,
+        "config_id": "dev",
+        "app_name": "DataBus",
+        "node_port": 3100,
+        "dbencrypt": "true",
+        "dbconnectTimeout": 40000,
+        "dbdebug": "true",
+        "dbport": 1433,
+        "uploads_dir": "./uploads",
+        "test_uploads_dir": "./test/",
+        "ref_dir": "./ref_files",
+        "ref_zip_dir": "./zip",
+        "export_dir": "./export_files",
+        "documentation_dir": "./doco",
+        "past_due_day_of_month": "last",
+        "due_day_of_month": 22,
+        "reminder_day_of_month": 15,
+        "TOKEN_KEY": "3rm7zXmfGGkENNZVousEG9rFTQQVdExy",
+
+        "roles": {
+            "user": [
+                "###PSMSOP.Member???.Primary"
+            ],
+            "operator": [
+                "###PSMSOP.Operational Owner"
+            ],
+            "admin": [
+                "###PSMSOP.Business Owner"
+            ]
+        },
+        "uploadConfig": {
+            "comment": [
+                "Details for each Data_Provided should contain all the ",
+                " ReportDetails/TableDetails combinations used by that Data_Provided.",
+                "This is used ONLY for calculating the history uploads"
+            ],
+            "Standard Austraclear Form": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_009",
+                        "TableDetails_ID": "TD_025"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_007",
+                        "TableDetails_ID": "TD_018"
+                    }
+                ],
+                "Sheet": {
+                    "startRow": 5,
+                    "startCol": 2,
+                    "message_type_row": 2,
+                    "category_row": 3,
+                    "skipNonMembers": "Yes"
+                },
+                "info": {
+                    "dateRow": 1,
+                    "dateCol": 1,
+                    "group": "Austraclear"
+                }
+            },
+            "Annual BPAY file": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_008",
+                        "TableDetails_ID": "TD_024"
+                    }
+                ],
+                "Sheet": {
+                    "startRow": 5,
+                    "startCol": 5,
+                    "skipNonMembers": "Yes"
+                },
+                "info": {
+                    "dateRow": 1,
+                    "dateCol": 4,
+                    "PI_Code_col": 2,
+                    "PI_Name_col": 3,
+                    "header_row": 3,
+                    "subheader_row": 4,
+                    "ignore_col": 3,
+                    "group": "Bpay"
+                }
+            },
+            "Standard HVCS Form": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_007",
+                        "TableDetails_ID": "TD_017"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_007",
+                        "TableDetails_ID": "TD_018"
+                    }
+                ],
+                "Monthly Totals - Paying BIC": {
+                    "startRow": 6,
+                    "startCol": 2,
+                    "message_type_row": 3,
+                    "category_row": 4,
+                    "type": "Paying BIC",
+                    "ReportDetails_ID": "RD_007",
+                    "TableDetails_ID": "TD_017",
+                    "skipNonMembers": "Yes"
+                },
+                "Monthly Totals - Receiving BIC": {
+                    "startRow": 6,
+                    "startCol": 2,
+                    "message_type_row": 3,
+                    "category_row": 4,
+                    "type": "Receiving BIC",
+                    "ReportDetails_ID": "RD_007",
+                    "TableDetails_ID": "TD_018",
+                    "skipNonMembers": "Yes"
+                },
+                "Time Bands - Settled": {
+                    "dateRow": 2,
+                    "dateCol": 2
+                }
+            },
+            "Standard HVCS 2024 Form": {
+                "Sheet": {
+                    "name": "Monthly - Paying & Receiving",
+                    "startRow": 2,
+                    "skipNonMembers": "Yes"
+                }
+            },
+            "BPAY EFTPOS Issuing and Acquiring": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_037"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_038"
+                    }
+                ],
+                "Sheet": {
+                    "startRow": 5,
+                    "startCol": 3,
+                    "message_type_row": 3,
+                    "category_row": 4,
+                    "TOTAL  EFTPOS ISSUED TRANSACTIONS": {
+                        "label": "Total eftpos transactions",
+                        "type": "TOTAL",
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_037"
+                    },
+                    "TOTAL  EFTPOS ACQUIRED TRANSACTIONS": {
+                        "label": "Total transactions",
+                        "type": "TOTAL",
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_038"
+                    },
+                    "skipNonMembers": "No"
+                },
+                "info": {
+                    "dateRow": 1,
+                    "dateCol": 3
+                }
+            },
+            "EFTPOS Issuing and Acquiring": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_037"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_038"
+                    }
+                ],
+                "Sheet": {
+                    "startRow": 5,
+                    "startCol": 3,
+                    "message_type_row": 3,
+                    "category_row": 4,
+                    "TOTAL  EFTPOS ISSUED TRANSACTIONS": {
+                        "label": "Total eftpos transactions",
+                        "type": "TOTAL",
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_037"
+                    },
+                    "TOTAL  EFTPOS ACQUIRED TRANSACTIONS": {
+                        "label": "Total transactions",
+                        "type": "TOTAL",
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_038"
+                    },
+                    "skipNonMembers": "No"
+                },
+                "info": {
+                    "dateRow": 1,
+                    "dateCol": 3
+                }
+            },
+            "Clients ASL NPP Stats": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_010",
+                        "TableDetails_ID": "TD_026"
+                    }
+                ],
+                "Sheet": {
+                    "startRow": 2,
+                    "startCol": 1,
+                    "bankMnemonicCol": 1,
+                    "bankCol": 2,
+                    "maxCol": 11,
+                    "headingRow": 2,
+                    "ignore": [
+                        "org",
+                        "msg",
+                        "gross"
+                    ]
+                },
+                "info": {
+                    "dateRow": 1,
+                    "dateCol": 2,
+                    "defaultBank": "ASL"
+                }
+            },
+            "Standard RBA Bulk Electronic Clearing System Form": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_004",
+                        "TableDetails_ID": "TD_027"
+                    }
+                ]
+            },
+            "Standard RBA Card Acquiring": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_002",
+                        "TableDetails_ID": "TD_003"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_002",
+                        "TableDetails_ID": "TD_029"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_002",
+                        "TableDetails_ID": "TD_030"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_002",
+                        "TableDetails_ID": "TD_031"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_002",
+                        "TableDetails_ID": "TD_039"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_002",
+                        "TableDetails_ID": "TD_040"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_002",
+                        "TableDetails_ID": "TD_041"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_002",
+                        "TableDetails_ID": "TD_042"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_002",
+                        "TableDetails_ID": "TD_043"
+                    }
+                ]
+            },
+            "Standard RBA Card Issuing": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_003",
+                        "TableDetails_ID": "TD_032"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_003",
+                        "TableDetails_ID": "TD_033"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_003",
+                        "TableDetails_ID": "TD_034"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_003",
+                        "TableDetails_ID": "TD_035"
+                    }
+                ]
+            },
+            "Standard RBA Cheque Form": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_001",
+                        "TableDetails_ID": "TD_001"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_001",
+                        "TableDetails_ID": "TD_002"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_001",
+                        "TableDetails_ID": "TD_036"
+                    }
+                ]
+            },
+            "Standard RBA EFTPOS Issuing and Acquiring": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_037"
+                    },
+                    {
+                        "ReportDetails_ID": "RD_011",
+                        "TableDetails_ID": "TD_038"
+                    }
+                ]
+            },
+            "Standard RBA NPP Form": {
+                "Details": [
+                    {
+                        "ReportDetails_ID": "RD_010",
+                        "TableDetails_ID": "TD_026"
+                    }
+                ]
+            }
+        }
+    },
+    "uat": {
+        "config_id": "uat",
+        "app_name": "PSMS UAT",
+        "dbserver": "psmsdevdbserver.database.windows.net",
+        "dbuser": "PSMS_DEV_user",
+        "dbpassword": "AusPayNet2021!",
+        "dbdatabase": "psmsuatdbserver"
+    },
+    "prod": {
+        "config_id": "prod",
+        "app_name": "PSMS Prod",
+        "dbserver": "psmsproddbserver.database.windows.net",
+        "dbuser": "user_prod",
+        "dbpassword": "oRY9ZbDjnpntJ!jhRYHPYH!!Ev*u7#6*9ySaMyQQqW3KRmF@3r",
+        "dbdatabase": "psmsproddb",
+        "TOKEN_KEY": "62vUP$q8kt3gN7VvtpY$?CdBXQuCw!9Z"
+    }
+}

@@ -1,0 +1,15 @@
+5171 add to number data allocation in dest record AND number Framework
+
+check merge merging for ADD not insert
+
+
+
+
+nodeJS defaults to 3000
+
+powershell
+stores environment variables in env:
+to set the port for node, set PORT
+$env:PORT=3100
+
+seems to apply to single session (I think)

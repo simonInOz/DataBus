@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    function formatAMPM(date) {
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var ampm = hours >= 12 ? "pm" : "am";
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      var strTime = hours + ":" + minutes + " " + ampm;
+      return strTime;
+    }
+    function formatDDMM(date) {
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var year = date.getYear() - 100;
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var strTime = day + "-" + monthNames[month] + "-" + year;
+      return strTime;
+    }
+    function setItem(id, s) {
+      const elem = document.getElementById(id);
+      elem.textContent = s;
+    }
+    function setTime(id, s) {
+      const elem = document.getElementById(id);
+      const zz = s + " " + formatAMPM(new Date());
+      elem.textContent = zz;
+    }
+    function setDate(id, s) {
+      const elem = document.getElementById(id);
+      const zz = s + " " + formatDDMM(new Date());
+      elem.textContent = zz;
+    }
+    function setTheTime() {
+      setTime("time", "");
+    }
+    function setTheDate() {
+      setDate("date", "");
+    }
+    function pageLoaded() {
+      let q = new URLSearchParams(window.location.search);
+      const h = q.get("H");
+      const l = q.get("L");
+
+      setItem("H", h);
+      setItem("L", l);
+
+      setTheTime();
+      setTheDate();
+      setInterval(setTheTime, 5000);
+      setInterval(setTheDate, 500000);
+    }
+  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newton's Css Cradle</title>
+    <link rel="stylesheet" href="./stylesheets/cradle2.css" />
+  </head>
+  <body onload="pageLoaded()">
+    <div class="cradle">
+      <div class="floor"></div>
+
+      <div class="wood base">
+        <div class="left centreText"><span id="time" class="smallText mirrorText">AusPayNet</span></div>
+        <div class="right centreText"><span id="date" class="smallText">PSMS</span></div>
+        <div class="front centreText" id="L">PSMS</div>
+        <div class="back centreText"><span class="mirrorText" id="H">AusPayNet</span></div>
+        <div class="top">
+          <div class="shadow"></div>
+          <div class="shadow"></div>
+          <div class="shadow"></div>
+          <div class="shadow"></div>
+          <div class="shadow"></div>
+        </div>
+      </div>
+      <div class="wood poll">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="wood poll">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="wood poll">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="wood poll">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="wood strecher">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="front dots"></div>
+        <div class="back"></div>
+        <div class="top"></div>
+      </div>
+      <div class="wood strecher">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="front"></div>
+        <div class="back dots"></div>
+        <div class="top"></div>
+      </div>
+
+      <div class="ballPlate">
+        <div class="ballWrapper">
+          <div class="ball"></div>
+        </div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="ballPlate">
+        <div class="ballWrapper">
+          <div class="ball"></div>
+        </div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="ballPlate">
+        <div class="ballWrapper">
+          <div class="ball"></div>
+        </div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="ballPlate">
+        <div class="ballWrapper">
+          <div class="ball"></div>
+        </div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="ballPlate">
+        <div class="ballWrapper">
+          <div class="ball"></div>
+        </div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+Operation ID
+/subscriptions/b7a59d67-a1a3-4b42-955b-90e662048c48/resourceGroups/PSMS_DEV/providers/Microsoft.Resources/deployments/Microsoft.SQLDatabase.newDatabaseExistingServer_f9e50b08cfca4722/operations/3AA1E0FF4EA38B63
+
+Operation Name
+3AA1E0FF4EA38B63
+
+Tracking ID
+adb69b67-bed1-4554-97f5-966b57af4d09
+
+serviceRequest ID
+5043f9b7-1348-4722-8a9e-27597bc951c3
+
+Resource ID/subscriptions/b7a59d67-a1a3-4b42-955b-90e662048c48/resourceGroups/PSMS_DEV/providers/Microsoft.Sql/servers/psmsdevdbserver/databases/dbudb_dev
+
+Resource
+psmsdevdbserver/dbudb_dev
+
+Deployment correlation ID
+a2ab2fa8-8e14-4015-a04f-fcb7af7b04f7

@@ -1,0 +1,189 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-04-08 14:40:04
+count workspace : c:\Users\simon\code\apn\boom\vue-uploader-back-db
+total files : 162
+total code lines : 13132
+total comment lines : 1146
+total blank lines : 2003
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .lock|           2316|              4|            458|     18|
+   |            .js|           6343|            898|            775|     48|
+   |           .log|           2638|              6|            512|     20|
+   |          .jade|             16|              0|              2|   0.12|
+   |           .jsj|            380|            211|             81|    2.9|
+   |          .html|             56|              0|              2|   0.43|
+   |          .json|            211|              0|              5|    1.6|
+   |           .sql|            270|              0|             15|    2.1|
+   |            .md|            410|              3|            121|    3.1|
+   |           .css|            404|              0|              7|    3.1|
+   |               |             88|             24|             25|   0.67|
+   -------------------------------------------------------------------------
+.deployment, code is 2, comment is 0, blank is 0.
+.yarnclean, code is 39, comment is 0, blank is 6.
+app.js, code is 66, comment is 12, blank is 20.
+bin\www, code is 47, comment is 24, blank is 19.
+config\config.json, code is 184, comment is 0, blank is 5.
+config\createDb_001.sql, code is 251, comment is 0, blank is 15.
+doco\1_PSMS.md, code is 6, comment is 0, blank is 1.
+doco\2_Overview.md, code is 25, comment is 0, blank is 8.
+doco\admin\Azure_PSMS.md, code is 74, comment is 1, blank is 23.
+doco\admin\documentation.md, code is 26, comment is 2, blank is 12.
+doco\admin\lists.md, code is 2, comment is 0, blank is 1.
+doco\admin\program\1_System Structure.md, code is 13, comment is 0, blank is 2.
+doco\admin\program\2_Client VueJS.md, code is 26, comment is 0, blank is 4.
+doco\admin\program\Back_End_NodeJS\1_Server.md, code is 18, comment is 0, blank is 4.
+doco\admin\program\Back_End_NodeJS\3_Classes.md, code is 7, comment is 0, blank is 0.
+doco\admin\program\Back_End_NodeJS\4_Libraries.md, code is 22, comment is 0, blank is 3.
+doco\admin\program\Back_End_NodeJS\5_Other_Files.md, code is 10, comment is 0, blank is 0.
+doco\admin\program\Back_End_NodeJS\7_File_Handling.md, code is 8, comment is 0, blank is 6.
+doco\admin\program\Back_End_NodeJS\8_Dependencies.md, code is 16, comment is 0, blank is 1.
+doco\Database.md, code is 13, comment is 0, blank is 3.
+doco\MasterList.md, code is 22, comment is 0, blank is 7.
+doco\operator\3_PSMS.md, code is 6, comment is 0, blank is 1.
+doco\operator\4_Operator_Overview.md, code is 25, comment is 0, blank is 8.
+doco\reference_files\1_What are they.md, code is 4, comment is 0, blank is 2.
+doco\reference_files\2_What do they look Like.md, code is 12, comment is 0, blank is 6.
+doco\reference_files\3_How do we add Ref Files.md, code is 9, comment is 0, blank is 4.
+doco\reference_files\4_What does Unique Cell mean.md, code is 2, comment is 0, blank is 1.
+doco\reference_files\5_How do we cope with old formats.md, code is 3, comment is 0, blank is 2.
+doco\reference_files\6_More commands.md, code is 19, comment is 0, blank is 6.
+doco\reference_files\7_How is label, table, etc determined.md, code is 4, comment is 0, blank is 3.
+doco\reference_files\8_Custom Formats.md, code is 2, comment is 0, blank is 1.
+doco\reference_files\9_config sheet.md, code is 4, comment is 0, blank is 3.
+doco\Security.md, code is 18, comment is 0, blank is 4.
+doco\user\4_PSMS.md, code is 7, comment is 0, blank is 2.
+doco\user\5_User_Overview.md, code is 7, comment is 0, blank is 3.
+export_files\118d570a.xlsx, it is a binary file.
+export_files\3abad340.xlsx, it is a binary file.
+export_files\8fe6fbaf.xlsx, it is a binary file.
+export_files\a55cced8.xlsx, it is a binary file.
+export_files\doczip.zip, it is a binary file.
+export_files\refzip.zip, it is a binary file.
+modules\Action.js, code is 52, comment is 2, blank is 5.
+modules\auth.js, code is 34, comment is 6, blank is 8.
+modules\authorisation.js, code is 20, comment is 0, blank is 2.
+modules\CellLabel.js, code is 109, comment is 13, blank is 18.
+modules\Datasheet.js, code is 1122, comment is 130, blank is 116.
+modules\dbCreate.js, code is 47, comment is 10, blank is 5.
+modules\dbLibMySql.js, code is 50, comment is 0, blank is 4.
+modules\dbLibTransactSql.js, code is 125, comment is 9, blank is 9.
+modules\Due.js, code is 228, comment is 33, blank is 28.
+modules\ErrorHandler.js, code is 29, comment is 1, blank is 4.
+modules\fileLib.js, code is 837, comment is 141, blank is 116.
+modules\Lookup.js, code is 39, comment is 6, blank is 5.
+modules\masterList.js, code is 551, comment is 63, blank is 53.
+modules\Ref.js, code is 106, comment is 33, blank is 16.
+modules\utils.js, code is 464, comment is 62, blank is 53.
+old\tbl001_fidetails.sql, code is 18, comment is 0, blank is 0.
+old\z_dbLibMsSql.js, code is 92, comment is 14, blank is 14.
+old\z_dbLibTransactSql copy.js, code is 19, comment is 2, blank is 4.
+old\z_file copy.js, code is 372, comment is 123, blank is 38.
+old\z_file copy2.js, code is 256, comment is 42, blank is 33.
+old\zfileLib.js, code is 273, comment is 28, blank is 21.
+old\ZZ_dbLibTransactSql.js, code is 233, comment is 2, blank is 25.
+package.json, code is 27, comment is 0, blank is 0.
+ref_files\0045dada7276636e3f47c226a3f87ca7, it is a binary file.
+ref_files\03a36be71b63d12ca1cc8db91940344d, it is a binary file.
+ref_files\133abd5f5d3ae7093b9465cfff9ee2c2, it is a binary file.
+ref_files\133abd5f5d3ae7093b9465cfff9ee2c2_config, it is a binary file.
+ref_files\23ce3984381ac5d28a1cdc98485c9a56, it is a binary file.
+ref_files\2740765885121eda47172b736845b9eb, it is a binary file.
+ref_files\379287f12e0070aa832466cf610b1d74, it is a binary file.
+ref_files\723a7e0759aa04caa757b54f700ef210, it is a binary file.
+ref_files\835e8091f2d1ef84ff4b411d27a2b5e6, it is a binary file.
+ref_files\ac1f128ebe301ce97625a9a55e59bcf0, it is a binary file.
+ref_files\ace8775c08feab5c551578333b75b349, it is a binary file.
+ref_files\ae3fec553f8b3ccf264783ad5e76508d, it is a binary file.
+ref_files\b8f5f14b06c946d86f8415dc05e1bee5, it is a binary file.
+ref_files\d1ab2bd5d4e7f5c9cfb66ef0760e23ee, it is a binary file.
+ref_files\dfe7cc4f5c048e331a4afb8795d703d4, it is a binary file.
+ref_files\e0dc61aafe8ed5d74c467c4269663017, it is a binary file.
+ref_files\zip\AAA BECS_Monthly_ref_config.xlsx, it is a binary file.
+ref_files\zip\AACA_monthlyA_ref_config.xlsx, it is a binary file.
+ref_files\zip\AADebit Card Issuing_ref_config.xlsx, it is a binary file.
+ref_files\zip\AUSPAYNET Revised CARD ACQUIRING FORM 2021c_ref_config.xlsx, it is a binary file.
+ref_files\zip\AUSPAYNET_EFTPOS_ISSUING_AND_ACQUIRING_EFTPOS_ref_config.xlsx, it is a binary file.
+ref_files\zip\Austraclear JUN21_ref_config.xlsx, it is a binary file.
+ref_files\zip\BPAY Annual 2021_ref_config.xlsx, it is a binary file.
+ref_files\zip\CA_monthly_c_ref_config.xlsx, it is a binary file.
+ref_files\zip\Clients ASL NPP Stats_ref_config.xlsx, it is a binary file.
+ref_files\zip\Debit Card Issuing_ref_config.xlsx, it is a binary file.
+ref_files\zip\Debit Card IssuingA_ref_config.xlsx, it is a binary file.
+ref_files\zip\EFTPOS ISSUING AND ACQUIRING_yearly_ref_config.xlsx, it is a binary file.
+ref_files\zip\HVCSAPR21_ref_config.xlsx, it is a binary file.
+ref_files\zip\PSC_d_ref_config.xlsx, it is a binary file.
+ref_files\zip\RPA_NPP_member_ref_config.xlsx, it is a binary file.
+routes\authRouter.js, code is 83, comment is 10, blank is 6.
+routes\db.js, code is 645, comment is 89, blank is 94.
+routes\file.js, code is 470, comment is 46, blank is 73.
+routes\index.js, code is 3, comment is 5, blank is 2.
+static\cradle2.html, code is 56, comment is 0, blank is 2.
+static\images\marble.jpg, it is a binary file.
+static\images\wood.jpg, it is a binary file.
+static\stylesheets\cradle2.css, code is 404, comment is 0, blank is 7.
+test\action.test.jsj, code is 21, comment is 2, blank is 2.
+test\AUSPAYNET Revised CARD ACQUIRING FORM 2021.xlsx, it is a binary file.
+test\Austraclear JUN21.xlsx, it is a binary file.
+test\BECS_reference2.xlsx, it is a binary file.
+test\BECS_reference3.xlsx, it is a binary file.
+test\BECS_reference4.xlsx, it is a binary file.
+test\cellLabel.test.jsj, code is 37, comment is 157, blank is 5.
+test\datasheet.test.jsj, code is 34, comment is 4, blank is 7.
+test\dblib.test.jsj, code is 31, comment is 1, blank is 11.
+test\due.test.jsj, code is 20, comment is 10, blank is 9.
+test\fileLib.test.jsj, code is 43, comment is 7, blank is 4.
+test\jwt.test.js, code is 18, comment is 16, blank is 3.
+test\masterListExport.test.jsj, code is 13, comment is 3, blank is 3.
+test\Member Master List OCT21.xlsx, it is a binary file.
+test\NABASEP21.xls, it is a binary file.
+test\ref.test.jsj, code is 91, comment is 20, blank is 17.
+test\TEST.xlsx, it is a binary file.
+test\TYRO_BECS_JUN21_XLS.xlsx, it is a binary file.
+test\utils.test.jsj, code is 90, comment is 7, blank is 23.
+testFiles\Austraclear Data for ASX and AusPayNet - 2020.xlsx, it is a binary file.
+testFiles\BECS_reference.xlsx, it is a binary file.
+testFiles\BPAY input - 2019-2020 FINAL.xlsx, it is a binary file.
+testFiles\MCode_022NPPMAY21.xls, it is a binary file.
+testFiles\test.sql, code is 1, comment is 0, blank is 0.
+uploads\053b81fe80665cee5b8ef878f821f67e, it is a binary file.
+uploads\155c866f7802d47e24071d7b14f7f38b, it is a binary file.
+uploads\17010582fba7cc1a813caa764e315c08, it is a binary file.
+uploads\1dc3bf2b2a5cebcff293614a77959853, it is a binary file.
+uploads\228ac53afee422d19daf997466c7f660, it is a binary file.
+uploads\26d599fb9c45c43baa5f94b23a251692, it is a binary file.
+uploads\27585d0c8a9bb1e2180d738d0d968659, it is a binary file.
+uploads\2f40af922a6fe557323a325579950bcc, it is a binary file.
+uploads\336fd91ca6be5a0340bced8d5ca0a28c, it is a binary file.
+uploads\351252aff9b7dc25035a51cc4d93ba6e, it is a binary file.
+uploads\39a4aafb6a4e099b7d55e57206f2d399, it is a binary file.
+uploads\4818c24df7957ec124d2600d1e26baae, it is a binary file.
+uploads\5beb2a8bfc66fff7f25487cf4d5120ff, it is a binary file.
+uploads\5f674214ae0d0d79033e50e62357307d, it is a binary file.
+uploads\5fcf098eb8d6ae27921c734cd3eaebfe, it is a binary file.
+uploads\649b0acdf703e679982d68858d75041f, it is a binary file.
+uploads\683104913dc75edc16201a77c955fa4a, it is a binary file.
+uploads\7741dec7b8c688f0f7ed022f50e180fe, it is a binary file.
+uploads\7fcf0002e5762705754824b4de053f92, it is a binary file.
+uploads\9029ea5bbdbb66c9e456753c91e24001, it is a binary file.
+uploads\a63cfc134b269187e388932d2342e247, it is a binary file.
+uploads\b42d43da556e182d41100805215d401a, it is a binary file.
+uploads\b6bf83ca14697e82aece4c811cce1b1e, it is a binary file.
+uploads\bb4e677e0b5cf2e659c18040ead47c9c, it is a binary file.
+uploads\c29a2c49230bd673819efdf9a51ab023, it is a binary file.
+uploads\c654e3e424c02d5d6eec4d0529c2c5e5, it is a binary file.
+uploads\d1879d4269d660086f6473bc843d406e, it is a binary file.
+uploads\d776c564852dda8c0ab0be076e22799a, it is a binary file.
+uploads\df8ad94370bb5a822d45d111c2321783, it is a binary file.
+uploads\e4a8ae1aaf4f88a0f205b04458d0b752, it is a binary file.
+views\error.jade, code is 5, comment is 0, blank is 1.
+views\index.jade, code is 4, comment is 0, blank is 1.
+views\layout.jade, code is 7, comment is 0, blank is 0.
+yarn-error.log, code is 2638, comment is 6, blank is 512.
+yarn.lock, code is 2316, comment is 4, blank is 458.
+===============================================================================
