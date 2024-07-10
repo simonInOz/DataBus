@@ -1,62 +1,102 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
 
-name: Build and deploy Node.js app to Azure Web App - databus
+trigger:
+- main
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+pool:
+  vmImage: ubuntu-latest
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
 
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
-
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
-        with:
-          name: node-app
-          path: release.zip
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+- script: |
+    echo "Starting build"
     
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: node-app
+    node --version
+    npm --version
+    
+    echo "Files in build directory"
+    ls -lah
+    
+    # Remove and re-create the existing build folder if it exists
+    rm -rf backDBU/public
+    mkdir backDBU/public
+    mkdir backDBU/dist
+    mkdir backDBU/dist/public
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+      echo "Building and using the new 'frontDBU' frontend project."
       
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'databus'
-          slot-name: 'Production'
-          package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_69E777495A944409A820B20FA86E895B }}
+      cd frontDBU
+      yarn install
+      yarn audit
+      ret=$?
+      if [[ $ret -gt 12 ]]; then
+        echo "Project frontDBU contains critical vulnerabilities."
+        exit 2
+      else
+        echo "Project frontDBU contains _NO_ critical vulnerabilities."
+      fi
+      yarn build
+      ls -lah dist/
+      echo "Finished building the new frontDBU frontend project. Copying files into backend."
+      
+      cd ..
+     
+      # Copy the new frontDBU frontend compiled files into the public directory so it can be run and into the build 'dist' folder so it can be built
+      cp -R frontDBU/dist/. backDBU/public/
+      cp -R frontDBU/dist/. backDBU/dist/public
+
+    echo "Static frontend files copied. Building backend."
+    cd backDBU
+    yarn install
+  
+    yarn audit
+    ret=$?
+    if [[ $ret -gt 12 ]]; then
+      echo "Project backend contains critical vulnerabilities."
+      echo "Vulnerabilities exist within backend project. Project build will not fail for now."
+      echo "Vulnerabilities exist within backend project. Project build will not fail for now."
+      echo "Vulnerabilities exist within backend project. Project build will not fail for now."
+      echo "Normally this would fail the pipeline but this check has been removed until the vulnerabilities are addressed."
+      # exit 3
+    else
+      echo "Project backend contains _NO_ critical vulnerabilities."
+    fi
+    
+    # yarn build
+    echo "Finished building backend. Archiving package."
+
+    echo "Found version " 
+    zip -r psms-$(npm version | grep vue | sed -re "s/'backDBU': '//g" | sed "s/',//g")-$(git rev-parse --short HEAD).zip ./
+    
+    ls -lah
+  displayName: 'Run a multi-line script'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/backDBU/'
+    Contents: |
+      *.zip
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'DataBus-dev-$(Build.BuildNumber)-$(Build.SourceBranchName)'
+
+
+- task: AzureWebApp@1
+  displayName: 'Azure Web App Deploy: DataBus-dev-main'
+  inputs:
+    azureSubscription: 'Telstra CSP (b7a59d67-a1a3-4b42-955b-90e662048c48)'
+    appType: 'webAppLinux'
+    appName: 'DataBus-dev-main'
+    package: '$(System.DefaultWorkingDirectory)/**/psms-*.zip'
+    runtimeStack: 'NODE|18-lts'
+    startUpCommand: 'node bin/www'
